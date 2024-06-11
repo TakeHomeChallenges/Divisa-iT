@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import ResponsiveDrawer from "./components/ResponsiveDrawer";
+import CreditCardTask from "./components/CreditCardTask";
 import "./App.css";
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
       <header className="App-header">
         <ResponsiveDrawer setItemSelected={setItemSelected}>
 
-      {itemSelected === 0 ? "Tarjeta de credito": null}
+      {itemSelected === 0 ? <CreditCardTask />: null}
       {itemSelected === 1 ? "Juegos de equipos": null}
       {itemSelected === 2 ? "Dias de la semana": null}
       {itemSelected === 3 ? "CSS": null}
