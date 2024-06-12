@@ -124,7 +124,10 @@ export default function PersistentDrawerLeft({ children, setItemSelected }) {
             "CSS",
             "TypeScript",
           ].map((text, index) => (
-            <ListItem key={text} disablePadding onClick={() => setItemSelected(index)}>
+            <ListItem key={text} disablePadding onClick={() => {
+              setItemSelected(index)
+              handleDrawerClose()
+            }}>
               <ListItemButton>
                 <ListItemIcon>
                   {index === 0 ? <CreditCardIcon /> : null}
@@ -141,7 +144,7 @@ export default function PersistentDrawerLeft({ children, setItemSelected }) {
       </Drawer>
       <Main open={open} sx={{ padding: "0" }}>
         <DrawerHeader />
-        <Typography paragraph>{children}</Typography>
+        {children}
       </Main>
     </Box>
   );
