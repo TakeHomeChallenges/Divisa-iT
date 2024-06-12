@@ -67,7 +67,7 @@ const Card = () => {
   };
 
   return (
-    <>
+    <div className="card_container">
       <div className="card">
         <div className="card-inner">
           <div className="card-front">
@@ -144,7 +144,7 @@ const Card = () => {
           {userFeedback.message}
         </Alert>
       </Snackbar>
-    </>
+    </div>
   );
 };
 

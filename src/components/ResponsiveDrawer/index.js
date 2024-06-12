@@ -142,10 +142,6 @@ export default function PersistentDrawerLeft({ children, setItemSelected }) {
           ))}
         </List>
       </Drawer>
-      <Main open={open} sx={{ padding: "0" }}>
-        <DrawerHeader />
-        {children}
-      </Main>
     </Box>
   );
 }
