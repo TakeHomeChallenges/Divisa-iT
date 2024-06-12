@@ -8,11 +8,18 @@ import Mastercard from "../../assets/images/mastercard_logo.svg";
 import Contactless from "../../assets/images/creditcard_contactless.svg";
 import { Button } from "@mui/material";
 import { getIssuer } from "../../helpers/getIssuer";
+import Snackbar from "@mui/material/Snackbar";
+import Alert from "@mui/material/Alert";
 import "./style.css";
 
 const Card = () => {
   const [cardNumber, setCardNumber] = useState("");
   const [issuer, setIssuer] = useState("");
+  const [userFeedback, setUserFeedback] = useState({
+    open: false,
+    message: "",
+    type: "",
+  });
 
   const formatCardNumber = (e) => {
     let cardNumber = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
@@ -21,9 +28,42 @@ const Card = () => {
   };
 
   const handleCheckIssuer = () => {
+    if (cardNumber.length < 16) {
+      setUserFeedback({
+        open: true,
+        message: "The minimun card number is 13",
+        type: "error",
+      });
+      return;
+    }
+
     const issuerName = getIssuer(cardNumber);
     setIssuer(issuerName);
-    alert(`Issuer: ${issuerName}`); // Display issuer, can be replaced with a more sophisticated display method
+    if (issuerName === "Unknown") {
+      setUserFeedback({
+        open: true,
+        message: "The card issuer is unknown",
+        type: "error",
+      });
+    } else {
+      setUserFeedback({
+        open: true,
+        message: `The card issuer is ${issuerName}`,
+        type: "success",
+      });
+    }
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setUserFeedback({
+      open: false,
+      message: "",
+      type: "",
+    });
   };
 
   return (
@@ -37,15 +77,29 @@ const Card = () => {
               <img src={Visa} alt="Visa" className="logo-visa" />
             )}
             {issuer === "Mastercard" && (
-            <img src={Mastercard} alt="Mastercard" className="logo-master" width={70} />
+              <img
+                src={Mastercard}
+                alt="Mastercard"
+                className="logo-master"
+                width={70}
+              />
             )}
             {issuer === "Discover" && (
-            <img src={Discover} alt="Discover" className="logo-discovery" width={70}/>
+              <img
+                src={Discover}
+                alt="Discover"
+                className="logo-discovery"
+                width={70}
+              />
             )}
             {issuer === "AMEX" && (
-            <img src={AmericanExpress} alt="AMEX" className="logo-amex" width={70} />
+              <img
+                src={AmericanExpress}
+                alt="AMEX"
+                className="logo-amex"
+                width={70}
+              />
             )}
-
 
             <div className="card-contactless">
               <img src={Contactless} alt="Contactless" />
@@ -75,6 +129,21 @@ const Card = () => {
       <Button variant="contained" onClick={handleCheckIssuer}>
         Verificar Emisor
       </Button>
+
+      <Snackbar
+        open={userFeedback.open}
+        autoHideDuration={6000}
+        onClose={handleClose}
+      >
+        <Alert
+          onClose={handleClose}
+          severity={userFeedback.type === "success" ? "success" : "error"}
+          variant="filled"
+          sx={{ width: "100%" }}
+        >
+          {userFeedback.message}
+        </Alert>
+      </Snackbar>
     </>
   );
 };
