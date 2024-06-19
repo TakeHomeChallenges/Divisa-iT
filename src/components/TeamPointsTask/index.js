@@ -4,7 +4,7 @@ const TeamPointsTask = () => {
     
   return (
     <>
-      hello
+      Task
     </>
   );
 }
