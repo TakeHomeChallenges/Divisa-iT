@@ -1,0 +1,12 @@
+.stepper-container{
+    max-width: 720px;
+    margin: auto;
+    margin-top: 75px;
+}
+
+@media (max-width: 768px) {
+    .stepper-container{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+  }
