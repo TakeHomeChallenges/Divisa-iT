@@ -9,6 +9,12 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
 
 import "./style.css";
 
@@ -152,12 +158,60 @@ export default function VerticalLinearStepper() {
       </Stepper>
       {activeStep === steps.length && (
         <Paper square elevation={0} sx={{ p: 3 }}>
-          <Typography>Todos los pasos completados - ¡Terminaste!</Typography>
-          <Typography>Equipo 1 (inicial): {team1.join(", ")}</Typography>
-          <Typography>Equipo 2: {team2.join(", ")}</Typography>
-          <Typography>Equipo 1 (reorganizado): {reorganizedTeam1.join(", ")}</Typography>
-          <Typography>Puntuación inicial: {initialScore}</Typography>
-          <Typography>Puntuación máxima posible: {maxScore}</Typography>
+          <Typography>¡Resultados!</Typography>
+          <br/>
+          <TableContainer component={Paper} sx={{ mb: 3 }}>
+            <Typography variant="h6" sx={{ p: 2 }}>Equipos Iniciales</Typography>
+            <Table>
+              <TableHead>
+                <TableRow>
+                  <TableCell>Equipo 1</TableCell>
+                  <TableCell>Equipo 2</TableCell>
+                  <TableCell>Puntaje</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {team1.map((player, index) => (
+                  <TableRow key={index}>
+                    <TableCell>{player}</TableCell>
+                    <TableCell>{team2[index]}</TableCell>
+                    <TableCell>{player > team2[index] ? 1 : 0}</TableCell>
+                  </TableRow>
+                ))}
+                <TableRow>
+                  <TableCell colSpan={2}>Puntuación inicial</TableCell>
+                  <TableCell>{initialScore}</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </TableContainer>
+
+          <TableContainer component={Paper}>
+            <Typography variant="h6" sx={{ p: 2 }}>Equipos Reorganizados</Typography>
+            <Table>
+              <TableHead>
+                <TableRow>
+                  <TableCell>Equipo 1</TableCell>
+                  <TableCell>Equipo 2</TableCell>
+                  <TableCell>Puntaje</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {reorganizedTeam1.map((player, index) => (
+                  <TableRow key={index}>
+                    <TableCell>{player}</TableCell>
+                    <TableCell>{team2[index]}</TableCell>
+                    <TableCell>{player > team2[index] ? 1 : 0}</TableCell>
+                  </TableRow>
+                ))}
+                <TableRow>
+                  <TableCell colSpan={2}>Puntuación máxima posible</TableCell>
+                  <TableCell>{maxScore}</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </TableContainer>
+          
           <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
             Reiniciar
           </Button>
