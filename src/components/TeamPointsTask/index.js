@@ -65,7 +65,7 @@ function generateTeam(size) {
   return Array.from({ length: size }, () => Math.floor(Math.random() * 10) + 1);
 }
 
-export default function VerticalLinearStepper() {
+export default function TeamPointsTask() {
   const [activeStep, setActiveStep] = useState(0);
   const [teamSize, setTeamSize] = useState(3);
   const [team1, setTeam1] = useState([]);
