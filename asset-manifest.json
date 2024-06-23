@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/Divisa-iT/static/css/main.83795e18.css",
+    "main.js": "/Divisa-iT/static/js/main.fd279a83.js",
+    "static/js/453.3c2cfa24.chunk.js": "/Divisa-iT/static/js/453.3c2cfa24.chunk.js",
+    "static/media/mastercard_logo.svg": "/Divisa-iT/static/media/mastercard_logo.a9f1bc18e1740313c0a5ce07d3957a45.svg",
+    "static/media/american_express_logo.svg": "/Divisa-iT/static/media/american_express_logo.d8823fc6c2572fe24e9ba37c8cfa1f58.svg",
+    "static/media/discover_logo.svg": "/Divisa-iT/static/media/discover_logo.e0496ede610ff5044a66ba344468860c.svg",
+    "static/media/visa_logo.svg": "/Divisa-iT/static/media/visa_logo.964953bff247b84c3c6fc86c01c6e545.svg",
+    "index.html": "/Divisa-iT/index.html",
+    "static/media/creditcard_contactless.svg": "/Divisa-iT/static/media/creditcard_contactless.07d56751a89bb3c796253551f72337f3.svg",
+    "main.83795e18.css.map": "/Divisa-iT/static/css/main.83795e18.css.map",
+    "main.fd279a83.js.map": "/Divisa-iT/static/js/main.fd279a83.js.map",
+    "453.3c2cfa24.chunk.js.map": "/Divisa-iT/static/js/453.3c2cfa24.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.83795e18.css",
+    "static/js/main.fd279a83.js"
+  ]
+}
