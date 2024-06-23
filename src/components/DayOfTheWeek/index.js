@@ -30,7 +30,7 @@ const DayOfTheWeek = () => {
 
   const handleSubmit = () => {
     const day = getDayWeek(date);
-    
+
     if (day.error) {
 
       setDayOfWeek('');
@@ -41,6 +41,12 @@ const DayOfTheWeek = () => {
       });
 
     } else {
+
+      setUserFeedback({
+        open: true,
+        message: `Fecha encontrada con exito`,
+        type: "success",
+      });
 
       setDayOfWeek(day.dayOfWeek);
 
