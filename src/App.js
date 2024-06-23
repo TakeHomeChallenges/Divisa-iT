@@ -3,10 +3,11 @@ import ResponsiveDrawer from "./components/ResponsiveDrawer";
 import CreditCardTask from "./components/CreditCardTask";
 import TeamPointsTask from "./components/TeamPointsTask";
 import DayOfTheWeek from "./components/DayOfTheWeek";
+import CSSTask from "./components/CSSTask";
 import "./App.css";
 
 function App() {
-  const [itemSelected, setItemSelected] = useState(2);
+  const [itemSelected, setItemSelected] = useState(0);
 
   useEffect(() => {
     console.log(itemSelected);
@@ -19,7 +20,7 @@ function App() {
         {itemSelected === 0 ? <CreditCardTask /> : null}
         {itemSelected === 1 ? <TeamPointsTask /> : null}
         {itemSelected === 2 ? <DayOfTheWeek />  : null}
-        {itemSelected === 3 ? "CSS" : null}
+        {itemSelected === 3 ? <CSSTask /> : null}
         {itemSelected === 4 ? "TypeScript" : null}
       </div>
     </>

@@ -1,0 +1,32 @@
+/* style.css */
+
+.custom-list {
+  display: flex;
+  padding: 0;
+  list-style-type: none;
+  border: 1px solid green;
+  margin-top: 90px;
+  position: relative;
+}
+
+.custom-item {
+  flex: 1;
+  border: 1px solid green;
+  position: relative;
+}
+
+.custom-item h1 {
+  margin: 0;
+  padding: 10px;
+  background-color: lightpink;
+}
+
+.description {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0; /* Asegura que ocupe todo el ancho del contenedor */
+  background-color: yellow;
+  z-index: 1;
+  display: none; /* El control de visibilidad se maneja por React, no CSS */
+}
