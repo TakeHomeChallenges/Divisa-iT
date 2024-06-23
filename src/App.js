@@ -4,6 +4,7 @@ import CreditCardTask from "./components/CreditCardTask";
 import TeamPointsTask from "./components/TeamPointsTask";
 import DayOfTheWeek from "./components/DayOfTheWeek";
 import CSSTask from "./components/CSSTask";
+import TypescriptTask from "./components/TypescriptTask";
 import "./App.css";
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
         {itemSelected === 1 ? <TeamPointsTask /> : null}
         {itemSelected === 2 ? <DayOfTheWeek />  : null}
         {itemSelected === 3 ? <CSSTask /> : null}
-        {itemSelected === 4 ? "TypeScript" : null}
+        {itemSelected === 4 ? <TypescriptTask /> : null}
       </div>
     </>
   );

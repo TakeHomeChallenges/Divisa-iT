@@ -25,8 +25,8 @@
   position: absolute;
   top: 100%;
   left: 0;
-  right: 0; /* Asegura que ocupe todo el ancho del contenedor */
+  right: 0; 
   background-color: yellow;
   z-index: 1;
-  display: none; /* El control de visibilidad se maneja por React, no CSS */
+  display: none; 
 }
