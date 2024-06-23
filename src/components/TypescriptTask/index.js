@@ -55,10 +55,9 @@ const TypescriptTask = () => {
   return (
     <div
       style={{
-        marginTop: "75px",
+        marginTop: "55px",
         padding: "20px",
         maxWidth: "1000px",
-        margin: "auto",
         overflowX: "auto"
       }}
     >
