@@ -2,38 +2,26 @@
 
 import React, { useState } from 'react';
 import { Box, TextField, Button, Typography, Paper } from '@mui/material';
+import { getDayWeek } from '../../helpers/getDayWeek';
 import './style.css';
-function getDayWeek(date) {
-  // Validar formato de fecha
-  const datePattern = /^\d{1,2}-\d{1,2}-\d{4}$/;
-  if (!datePattern.test(date) || !date.length) {
-    alert('La fecha debe tener el formato DD-MM-AAAA');
-    return null;
-  }
-
-  // Separar la fecha en día, mes y año
-  let [day, month, year] = date.split('-').map(Number);
-
-  if (year < 1000) {
-    year += 2000;
-  }
-
-  month = String(month).padStart(2, '0');
-  day = String(day).padStart(2, '0');
-
-  const formattedDate = new Date(year, month - 1, day);
-  const daysOfWeek = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
-  return daysOfWeek[formattedDate.getDay()];
-}
 
 const DayOfTheWeek = () => {
   const [date, setDate] = useState('');
   const [dayOfWeek, setDayOfWeek] = useState('');
 
   const handleChange = (event) => {
-    setDate(event.target.value);
-  };
+    let value = event.target.value.replace(/\D/g, '');
+    if (value.length > 8) value = value.slice(0, 8);
 
+    if (value.length > 4) {
+      value = value.slice(0, 2) + '-' + value.slice(2, 4) + '-' + value.slice(4);
+    } else if (value.length > 2) {
+      value = value.slice(0, 2) + '-' + value.slice(2);
+    }
+
+    setDate(value);
+  };
+  
   const handleSubmit = () => {
     const day = getDayWeek(date);
     setDayOfWeek(day);
